@@ -9,3 +9,9 @@ h1 {
 p {
     color: red
 }
+
+.textInput {
+    background: none;
+    border: 0cm;
+    color:red;
+}

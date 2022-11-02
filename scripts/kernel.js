@@ -2,18 +2,22 @@
 var player = {
     current: null,
     active: null,
+    reverse: false,
     name: [],
-    deck: []
+    deck: [],
+    draw: 0
 }
 /*
 player {
     current: 0, (indicates who's the turn)
     active: 0, (indicates who's playing)
+    reverse: true, (indicates what is the direction of movement - false=clockwise)
     name: ["player0", "player1"] (shows the players' name)
     deck: [
         ["0🍌", "9🍆", "R🥕", "B🥒"], 
         ["C🍌", "0🍌", "2🍆", "3🥕", "5🥒", "5🥒", "5🥒"]]
-    ]
+    ], (shows the cards of the player with matching index - name[1] owns deck[1])
+    draw: 8 (shows the amount of cards the chosen player will draw)
 }
 */
 var pile = {
@@ -21,6 +25,7 @@ var pile = {
     discard: []
 }
 
+const cardType = ["🍌", "🍆", "🥕", "🥒"] // Card types by id, 0=banana, 3=eggplant
 
 /*
 player{

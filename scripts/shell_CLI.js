@@ -32,6 +32,12 @@ function reloadUi() {
     }
 }
 
+const cliInput = document.body
+cliInput.addEventListener("keypress", cliType)
+
+function cliType(e) {
+    console.log(e)
+}
 
 player.name.push("Adefado", "DOremi")
 player.deck.push(["0🍌", "0🍌", "2🍆", "3🥕", "5🥒"], ["0🍌", "0🍌", "2🍆", "3🥕", "5🥒", "5🥒", "5🥒"])
