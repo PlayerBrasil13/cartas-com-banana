@@ -1,5 +1,10 @@
 // This is the code that creates the text-based interface and asks for input.
 
+var cliButtons = {
+    selection: ["Jogar", "Comprar", "Salvar Jogo"],
+    selected: 2
+}
+
 //Reloads the user interface
 function reloadUi() {
     /*
@@ -28,16 +33,35 @@ function reloadUi() {
     cli.innerHTML += "<br><br>My deck:"
     //Shows active player's deck
     for (card in player.deck[player.active]) {
-        cli.innerHTML += `${player.deck[player.active][card]}`
+        cli.innerHTML += ` ${player.deck[player.active][card]}`
+    }
+
+    cliOpt.innerHTML = "-"
+    for (option in cliButtons.selection) {
+        if (cliButtons.selected == option) {
+            cliOpt.innerHTML += `[${cliButtons.selection[option]}]-`
+        } else {
+            cliOpt.innerHTML += ` ${cliButtons.selection[option]} -`
+        }
     }
 }
 
-const cliInput = document.body
-cliInput.addEventListener("keypress", cliType)
+addEventListener('keydown', (event) => {});
 
-function cliType(e) {
-    console.log(e)
-}
+onkeydown = (event) => {
+    switch (event.code) {
+        case "ArrowLeft":
+            cliButtons.selected--
+            break
+        case "ArrowRight":
+            cliButtons.selected++
+            break
+    }
+    if (cliButtons.selected < 0) {cliButtons.selected = cliButtons.selection.length - 1}
+    if (cliButtons.selected > cliButtons.selection.length - 1) {cliButtons.selected = 0}
+    reloadUi()
+};
+
 
 player.name.push("Adefado", "DOremi")
 player.deck.push(["0🍌", "0🍌", "2🍆", "3🥕", "5🥒"], ["0🍌", "0🍌", "2🍆", "3🥕", "5🥒", "5🥒", "5🥒"])

@@ -25,16 +25,20 @@ var pile = {
     discard: []
 }
 
-const cardType = ["🍌", "🍆", "🥕", "🥒"] // Card types by id, 0=banana, 3=eggplant
+const cardTypes = ["🍌", "🍆", "🥕", "🥒"] // Card types by id, 0=banana, 3=eggplant
+
+function createDeck() {
+    for (j=0; j<4; j++) {
+        for (var type in cardTypes) {
+            for (i = 0; i < 10; i++) {
+                pile.draw.push(i + cardTypes[type])
+            }
+        }
+    }
+    console.log(pile)
+}
 
 /*
-player{
-    current: 0,
-    active: 0,
-    name: ["name1", "name2", "name3"],
-    deck: [[0, 1, 2, 3], [0, 1, 2, 3, 4, 5]]
-
-}
 pile {
     draw: [
         [1, "banana"], 
