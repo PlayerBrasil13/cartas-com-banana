@@ -1,4 +1,7 @@
-
+var pile = {
+    draw: [],
+    discard: []
+}
 var player = {
     current: null,
     active: null,
@@ -7,8 +10,17 @@ var player = {
     deck: [],
     draw: 0
 }
+
+function playCard(number, type) {
+
+}
+
+function drawCard(times) {
+
+}
+
 /*
-player {
+kernel.player {
     current: 0, (indicates who's the turn)
     active: 0, (indicates who's playing)
     reverse: true, (indicates what is the direction of movement - false=clockwise)
@@ -20,26 +32,25 @@ player {
     draw: 8 (shows the amount of cards the chosen player will draw)
 }
 */
-var pile = {
-    draw: [],
-    discard: []
-}
+
+
+var saveFile = "No savefile yet"
 
 const cardTypes = ["🍌", "🍆", "🥕", "🥒"] // Card types by id, 0=banana, 3=eggplant
 
 function createDeck() {
-    for (j=0; j<4; j++) {
+    for (j = 0; j < 4; j++) {
         for (var type in cardTypes) {
             for (i = 0; i < 10; i++) {
-                pile.draw.push(i + cardTypes[type])
+                kernel.pile.draw.push(i + cardTypes[type])
             }
         }
     }
-    console.log(pile)
+    console.log(kernel.pile)
 }
 
 /*
-pile {
+kernel.pile {
     draw: [
         [1, "banana"], 
         [2, "carrot"], 
@@ -49,4 +60,5 @@ pile {
     discard: [[1, "banana"]]
 }
 🍌🍆🥕🥒
+⏩🚫🪞🔃❔🔨
 */
